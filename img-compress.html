@@ -3,26 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Compress your images online with our fully responsive image compression tool. Optimize images for web use with adjustable compression levels.">
+    <meta name="description" content="Compress your images online with our responsive image compression tool. Optimize images for web use with adjustable compression levels.">
     <meta name="keywords" content="image compression, optimize images, image optimizer, online image compressor">
     <meta name="author" content="Your Name">
-    <title>Online Image Compression Tool</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Online Image Compressor - Optimize Your Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #compression-tool {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #image-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #output-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #download-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Online Image Compression Tool</h1>
+    <script type='text/javascript' src='//pl26130660.effectiveratecpm.com/0b/de/db/0bdedbf0f9f1e74f9b63a5368bb51cea.js'></script>
+        <h1>Online Image Compressor</h1>
+        <p>Optimize your images for web use with our easy-to-use compression tool.</p>
     </header>
 
     <main>
-        <section id="ad-top">
+        <!-- Top Ad Section -->
+        <section id="ad-section-top">
             <!-- Google AdSense Ad Unit -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-2711618200277782/9560937466"
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID"
                     crossorigin="anonymous"></script>
             <!-- Ad Unit -->
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-ca-2711618200277782/9560937466"
+                 data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
                  data-ad-slot="1234567890"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
@@ -31,27 +88,27 @@
             </script>
         </section>
 
+        <!-- Compression Tool -->
         <section id="compression-tool">
             <input type="file" id="image-input" accept="image/*">
             <label for="compression-level">Compression Level:</label>
             <input type="range" id="compression-level" min="0" max="1" step="0.1" value="0.5">
-            <span id="compression-value">0.5</span>
             <button id="compress-btn">Compress Image</button>
             <div id="image-container">
                 <img id="output-image" src="" alt="Compressed Image">
             </div>
-            <a id="download-link" href="#" download="compressed-image.jpg" style="display:none;">Download Compressed Image</a>
+            <a id="download-link" href="#" download="compressed-image.jpg">Download Compressed Image</a>
         </section>
 
-        <section id="ad-bottom">
+        <!-- Bottom Ad Section -->
+        <section id="ad-section-bottom">
             <!-- Google AdSense Ad Unit -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-2711618200277782/6743202437"
-                
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID"
                     crossorigin="anonymous"></script>
             <!-- Ad Unit -->
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-app-pub-2711618200277782/6743202437"
+                 data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
                  data-ad-slot="0987654321"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
@@ -62,9 +119,39 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Online Image Compression Tool. All rights reserved.</p>
+        <p>&copy; 2025 Online Image Compressor. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script>
+        document.getElementById('compress-btn').addEventListener('click', function() {
+            const fileInput = document.getElementById('image-input');
+            const compressionLevel = parseFloat(document.getElementById('compression-level').value);
+            const outputImage = document.getElementById('output-image');
+            const downloadLink = document.getElementById('download-link');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        ctx.drawImage(img, 0, 0);
+
+                        canvas.toBlob(function(blob) {
+                            const compressedImageUrl = URL.createObjectURL(blob);
+                            outputImage.src = compressedImageUrl;
+                            downloadLink.href = compressedImageUrl;
+                        }, 'image/jpeg', compressionLevel);
+                    };
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+    </script>
+<script type='text/javascript' src='//pl26130660.effectiveratecpm.com/0b/de/db/0bdedbf0f9f1e74f9b63a5368bb51cea.js'></script>>
 </html>
